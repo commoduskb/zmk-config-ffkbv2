@@ -4,14 +4,27 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: sadekbaroudi
       url-base: https://github.com/sadekbaroudi
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+
+    - name: cirque-input-module
+      remote: petejohanson
+      revision: main
+
     - name: zmk-fingerpunch-keyboards
+      remote: sadekbaroudi
+      revision: main
+      import: config/deps.yml
+    - name: zmk-fingerpunch-vik
+      remote: sadekbaroudi
+      revision: main
+      import: config/deps.yml
+    - name: zmk-fingerpunch-controllers
       remote: sadekbaroudi
       revision: main
       import: config/deps.yml
