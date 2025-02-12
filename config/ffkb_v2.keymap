@@ -65,7 +65,7 @@
         bindings = <
             &none           &none           &none           &none           &none                &none           &none           &none           &none           &none
             &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &none           &kp M_PREV      &kp VOLD        &kp VOLU        &kp M_NEXT
-            &none           &none           &none           &none           &none                &none           &none           &C_BRI_DN        &C_BRI_UP        &none
+            &none           &none           &none           &none           &none                &none           &none           &none        &none        &none
 
                                         &none           &none                &none        &kp M_STOP      &kp M_PLAY      &C_MUTE
         >;
