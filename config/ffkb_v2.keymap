@@ -67,7 +67,7 @@
             &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &none           &kp M_PREV      &kp VOLD        &kp VOLU        &kp M_NEXT
             &none           &none           &none           &none           &none                &none           &none           &none        &none        &none
 
-                                        &none           &none                &none        &kp M_STOP      &kp M_PLAY      &C_MUTE
+                                        &none           &none                &none        &kp M_STOP      &kp M_PLAY      &none
         >;
     };
 
