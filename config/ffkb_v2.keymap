@@ -87,7 +87,7 @@
     sym {
         bindings = <
             &kp LBRC        &kp AMPS       &kp STAR       &kp LPAR       &kp RBRC                &none           &none           &none           &none           &none                
-            &kp COLN        &kp DLR        &kp PRCNT       &kp CARET      &kp PLUS                &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
+            &kp COLN        &kp DLR        &kp PRCNT      &none      &kp PLUS                &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
             &kp GRAVE       &kp EXCL       &kp AT         &kp HASH       &kp PIPE                &none           &none           &none           &none           &none                
 
                                             &none           &none           &none           &kp LPAR        &kp RPAR            &kp UNDS
