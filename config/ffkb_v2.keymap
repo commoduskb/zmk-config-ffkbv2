@@ -14,6 +14,13 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors/mouse_keys.dtsi>
 
+#define DEFAULT 0
+#define NAV     1
+#define MOUSE   2
+#define MEDIA   3
+#define NUM     4
+#define SYM     5
+#define FUN     6
 
 
 &caps_word {
@@ -24,19 +31,19 @@
    keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        DEFAULT {
         bindings = <
             &kp Q           &kp W           &kp F           &kp P           &kp B                &kp J           &kp L           &kp U           &kp Y           &kp QUOT
             &mt GUI A       &mt LALT R      &mt LCTL S      &mt LSHIFT T    &kp G                &kp M           &mt RSHIFT N    &mt RCTL E      &mt RALT I      &mt RGUI O
             &kp Z           &kp X           &kp C           &kp D           &kp V                &kp K           &kp H           &kp COMMA       &kp DOT         &kp SLASH
 
-            &                           lt MEDIA ESC     &lt NAV SPACE     &lt MOUSE TAB     &lt SYM ENTER     &lt NUM BSPC      &lt FUN DEL
+            &                           lt 3 ESC     &lt 1 SPACE     &lt 2 TAB     &lt 5 ENTER     &lt 4 BSPC      &lt 6 DEL
         >;
     };
 
     nav {
         bindings = <
-            &record_macro    &record_macro    &play_macro      &play_macro      &stop_recording  &kp LC(Y)       &kp LC(V)     &kp LC(C)     &kp LC(X)       &kp LC(Z)
+            &none    &none    &none      &none      &none  &kp LC(Y)       &kp LC(V)     &kp LC(C)     &kp LC(X)       &kp LC(Z)
             &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &caps_word    &kp LEFT         &kp UP          &kp DOWN         &kp RIGHT
             &none           &none           &none           &none           &none                &ext_power LOCK  &kp HOME      &kp PGUP     &kp PGDN         &kp END
 
@@ -65,9 +72,7 @@
     };
 
 
-    };
-
-        num {
+    num {
         bindings = <
             &kp LBRC        &kp N7         &kp N8         &kp N9         &kp RBRC                &none           &none           &none           &none      &none                
             &kp SCLN        &kp N4         &kp N5         &kp N6         &kp EQUAL               &none           &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI                     
@@ -113,59 +118,4 @@
 
     };
 
-     behaviors {
-        //Layer Taps
-        ltMEDIA: layer_tap_media {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_MEDIA";
-            tapping-term-ms = ;
-            quick-tap-ms = ; // Optional, for faster taps
-            flavor = "tap-preferred"; //balanced, hold-preferred, or tap-preferred.
-            bindings = <&mo>, <&kp>;
-        };
-
-        ltNAV: layer_tap_nav {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_NAV";
-            tapping-term-ms = ;
-            quick-tap-ms = ;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-        };
-
-        ltMOUSE: layer_tap_mouse {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_MOUSE";
-            tapping-term-ms = ;
-            quick-tap-ms = ;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-        };
-
-        ltSYM: layer_tap_sym {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_SYM";
-            tapping-term-ms = ;
-            quick-tap-ms = ;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-        };
-
-        ltNUM: layer_tap_num {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_NUM";
-            tapping-term-ms = ;
-            quick-tap-ms = ;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-        };
-        ltFUN: layer_tap_fun {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_FUN";
-            tapping-term-ms = ;
-            quick-tap-ms = ;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-        };
-    };
 };
