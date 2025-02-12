@@ -53,9 +53,9 @@
 
     mouse {
         bindings = <
-            &kp LC(Y)       &kp LC(V)       &kp LC(C)       &kp LC(X)       &kp LC(Z)            &none           &none           &none           &none           &none
+            &none       &none           &none           &none           &none           &none &kp LC(Y)       &kp LC(V)       &kp LC(C)       &kp LC(X)       &kp LC(Z)
             &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &none           &mmv MOVE_LEFT      &mmv MOVE_UP        &mmv MOVE_DOWN      &mmv MOVE_RIGHT
-            &none           &kp W_LEFT      &kp W_UP        &kp W_DOWN      &kp W_RIGHT          &none           &none           &none           &none           &none
+            &none           &kp none      &kp none        &kp none      &kp none          &none           &none           &none           &none           &none
 
                             &none           &none           &none           &kp BTN2        &kp BTN1            &kp BTN3
         >;
