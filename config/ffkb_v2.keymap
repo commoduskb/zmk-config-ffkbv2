@@ -16,106 +16,156 @@
 
 
 
-
-
-
-#define DEFAULT 0
-#define NAV     1
-#define MOUSE   2
-#define MEDIA   3
-#define NUM     4
-#define SYM     5
-#define FUN     6
-
 &caps_word {
     continue-list = <UNDERSCORE MINUS>;
 };
 
-/ {
-    combos {
-        compatible = "zmk,combos";
-        combo_undo {
-            timeout-ms = <50>;
-            key-positions = <25 26>;
-            bindings = <&kp LC(Z)>;
-        };
-    };
-};
-
-/ {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        hs: homerow_shift {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <175>;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-        };
-    };
 
     keymap {
-        compatible = "zmk,keymap";
+    compatible = "zmk,keymap";
 
-        default_layer {
+    default_layer {
         bindings = <
-            &kp Q  &kp W    &kp F    &kp P       &kp B               &kp J    &kp L    &kp U       &kp Y      &kp QUOT
-            &mt GUI A  &mt LALT R &mt LCTL S   &mt LSHIFT T &kp G    &kp M    &mt RSHIFT N &mt RCTL E &mt RALT I &mt RGUI O
-            &kp Z      &kp X       &kp C       &kp D        &kp V    &kp K    &kp H    &kp COMMA   &kp DOT    &kp SLASH
-                      &mo MEDIA   &mo NAV   &mo MOUSE                       &mo SYM     &mo NUM   &mo FUN
+            &kp Q           &kp W           &kp F           &kp P           &kp B                &kp J           &kp L           &kp U           &kp Y           &kp QUOT
+            &mt GUI A       &mt LALT R      &mt LCTL S      &mt LSHIFT T    &kp G                &kp M           &mt RSHIFT N    &mt RCTL E      &mt RALT I      &mt RGUI O
+            &kp Z           &kp X           &kp C           &kp D           &kp V                &kp K           &kp H           &kp COMMA       &kp DOT         &kp SLASH
+
+            &                           lt MEDIA ESC     &lt NAV SPACE     &lt MOUSE TAB     &lt SYM ENTER     &lt NUM BSPC      &lt FUN DEL
+        >;
+    };
+
+    nav {
+        bindings = <
+            &record_macro    &record_macro    &play_macro      &play_macro      &stop_recording  &kp LC(Y)       &kp LC(V)     &kp LC(C)     &kp LC(X)       &kp LC(Z)
+            &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &caps_word    &kp LEFT         &kp UP          &kp DOWN         &kp RIGHT
+            &none           &none           &none           &none           &none                &ext_power LOCK  &kp HOME      &kp PGUP     &kp PGDN         &kp END
+
+                                            &none           &none           &none           &kp ENTER       &kp BSPC            &kp DEL
+        >;
+    };
+
+    mouse {
+        bindings = <
+            &kp LC(Y)       &kp LC(V)       &kp LC(C)       &kp LC(X)       &kp LC(Z)            &none           &none           &none           &none           &none
+            &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &none           &kp M_LEFT      &kp M_UP        &kp M_DOWN      &kp M_RIGHT
+            &none           &kp W_LEFT      &kp W_UP        &kp W_DOWN      &kp W_RIGHT          &none           &none           &none           &none           &none
+
+                            &none           &none           &none           &kp BTN2        &kp BTN1            &kp BTN3
+        >;
+    };
+
+    media {
+        bindings = <
+            &none           &none           &none           &none           &none                &none           &none           &none           &none           &none
+            &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &none           &kp M_PREV      &kp VOLD        &kp VOLU        &kp M_NEXT
+            &none           &none           &none           &none           &none                &none           &none           &kp BRID        &kp BRIU        &none
+
+                                          &none           &none                &none        &kp M_STOP      &kp M_PLAY      &kp MUTE
         >;
     };
 
 
-        nav_layer {
-            bindings = <
-    &trans     &kp ESC      &kp PG_UP    &kp UP      &kp PG_DN     &trans                                      &kp ASTRK     &kp N7       &kp N8        &kp N9      &kp MINUS   &trans
-    &trans     &kp HOME     &kp LEFT     &kp DOWN    &kp RIGHT     &kp END                                     &kp FSLH      &kp N4       &kp N5        &kp N6      &kp PLUS    &trans
-    &trans     &trans       &trans       &trans      &trans        &trans                                      &kp EQUAL     &kp N1       &kp N2        &kp N3      &kp N0      &trans
-                                         &trans      &trans        &trans       &kp TAB       &kp BSPC         &kp SPACE     &kp DOT      &trans
-            >;
+    };
+
+        num {
+        bindings = <
+            &kp LBRC        &kp N7         &kp N8         &kp N9         &kp RBRC                &none           &none           &none           &none      &none                
+            &kp SCLN        &kp N4         &kp N5         &kp N6         &kp EQUAL               &none           &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI                     
+            &kp GRAVE       &kp N1         &kp N2         &kp N3         &kp BSLH                &none           &none           &none           &none           &none                
+
+                                &kp DOT         &kp N0              &kp MINUS              &none           &none           &none           
+        >;
+
+    };
+
+
+    sym {
+        bindings = <
+            &kp LBRC        &kp AMPR       &kp ASTR       &kp LPAR       &kp RBRC                &none           &none           &none           &none           &none                
+            &kp COLN        &kp DLR        &kp PRCT       &kp CARET      &kp PLUS                &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
+            &kp GRAVE       &kp EXCL       &kp AT         &kp HASH       &kp PIPE                &none           &none           &none           &none           &none                
+
+                                            &none           &none           &none           &kp LPAR        &kp RPAR            &kp UNDS
+        >;
+    };
+
+
+
+    fun {
+        bindings = <
+            &none           &none           &none           &none           &bootloader          &kp F12         &kp F7         &kp F8         &kp F9         &kp PSCR
+            &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                &kp F11         &kp F4         &kp F5         &kp F6         &kp SLCK
+            &none           &none           &none           &none           &none                &kp F10         &kp F1         &kp F2         &kp F3         &kp PAUS
+
+                                            &none           &none           &none           &kp APP         &kp SPACE           &kp TAB
+        >;
+
+    };
+
+    fun {
+        bindings = <
+            &kp F12         &kp F7         &kp F8         &kp F9         &kp none                &none           &none           &none           &none           &bootloader          
+            &kp F11         &kp F4         &kp F5         &kp F6         &kp none                &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
+            &kp F10         &kp F1         &kp F2         &kp F3         &kp none                &none           &none           &none           &none           &none                
+
+                                        &kp APP         &kp SPACE           &kp TAB          &none           &none           &none           
+        >;
+
+    };
+
+     behaviors {
+        //Layer Taps
+        ltMEDIA: layer_tap_media {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_MEDIA";
+            tapping-term-ms = ;
+            quick-tap-ms = ; // Optional, for faster taps
+            flavor = "tap-preferred"; //balanced, hold-preferred, or tap-preferred.
+            bindings = <&mo>, <&kp>;
         };
 
-        sym_layer {
-            bindings = <
-    &trans     &kp EXCL     &kp AT       &kp HASH        &kp DLLR         &kp PRCNT                                   &kp CARET     &kp AMPS          &kp ASTRK     &kp UNDER   &kp EQUAL   &trans
-    &trans     &kp MINUS    &kp LBKT     &kp LBRC        &kp LPAR         &kp LT                                      &kp GT        &kp RPAR          &kp RBRC      &kp RBKT    &kp PLUS    &trans
-    &trans     &kp CAPS     &kp GRAVE    &kp LC(LS(TAB)) &kp LC(LG(LEFT)) &caps_word                                  &trans        &kp LC(LG(RIGHT)) &kp LC(TAB)   &trans      &kp BSLH    &trans
-                                         &trans          &trans           &kp RET       &kp DEL        &kp BSPC       &trans        &trans            &trans
-            >;
+        ltNAV: layer_tap_nav {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_NAV";
+            tapping-term-ms = ;
+            quick-tap-ms = ;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
         };
 
-        func_layer {
-            bindings = <
-    &trans     &bootloader  &kp LS(PG_UP) &kp LS(UP)   &kp LS(PG_DN) &trans                                      &kp C_PLAY_PAUSE &kp F7       &kp F8        &kp F9      &kp F10     &trans
-    &trans     &kp LS(HOME) &kp LS(LEFT)  &kp LS(DOWN) &kp LS(RIGHT) &kp LS(END)                                 &kp K_VOL_UP     &kp F4       &kp F5        &kp F6      &kp F11     &trans
-    &trans     &trans       &trans        &trans       &trans        &kp C_MUTE                                  &kp K_VOL_DN     &kp F1       &kp F2        &kp F3      &kp F12     &trans
-                                          &trans       &trans        &trans        &trans          &kp SPACE     &trans           &trans       &trans
-            >;
+        ltMOUSE: layer_tap_mouse {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_MOUSE";
+            tapping-term-ms = ;
+            quick-tap-ms = ;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
         };
 
-        media_layer {
-            bindings = <
-    &trans     &trans       &trans        &trans       &trans        &trans                                     &trans             &bt BT_PRV        &bt BT_NXT         &trans         &trans          &trans
-    &trans     &trans       &trans        &trans       &trans        &trans                                     &bt BT_CLR         &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2   &bt BT_SEL 3    &trans
-    &trans     &trans       &trans        &trans       &trans        &trans                                     &ext_power EP_TOG  &ext_power EP_ON  &ext_power EP_OFF  &out OUT_USB   &out OUT_BLE    &trans
-                                          &trans       &trans        &trans        &trans         &trans        &trans             &trans            &trans
-            >;
+        ltSYM: layer_tap_sym {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_SYM";
+            tapping-term-ms = ;
+            quick-tap-ms = ;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
         };
 
-        winnav_layer {
-            bindings = <
-    &trans     &trans       &trans       &kp LG(UP)   &trans        &trans                                      &trans      &trans      &trans      &trans      &trans      &trans
-    &trans     &trans       &kp LG(LEFT) &kp LG(DOWN) &kp LG(RIGHT) &trans                                      &trans      &trans      &trans      &trans      &trans      &trans
-    &trans     &trans       &trans       &trans       &trans        &trans                                      &trans      &trans      &trans      &trans      &trans      &trans
-                                         &trans       &trans        &trans        &trans         &trans         &trans      &trans      &trans
-            >;
+        ltNUM: layer_tap_num {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_NUM";
+            tapping-term-ms = ;
+            quick-tap-ms = ;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+        };
+        ltFUN: layer_tap_fun {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_FUN";
+            tapping-term-ms = ;
+            quick-tap-ms = ;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
         };
     };
 };
