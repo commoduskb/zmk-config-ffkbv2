@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+
+/* Do I need all theses includes */ 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
@@ -12,12 +14,18 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors/mouse_keys.dtsi>
 
+
+
+
+
+
 #define DEFAULT 0
 #define NAV     1
-#define SYM     2
-#define FUNC    3
-#define MEDIA   4
-#define WINNAV  5
+#define MOUSE   2
+#define MEDIA   3
+#define NUM     4
+#define SYM     5
+#define FUN     6
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS>;
@@ -56,13 +64,14 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-    &mkp MCLK  &kp Q        &kp W        &kp F       &kp P         &kp B                                       &kp J         &kp L        &lt WINNAV U  &kp Y       &kp SEMI    &kp BSLH
-    &mkp LCLK  &hm LCTL A   &hm LGUI R   &hm LALT S  &hs LSHIFT T  &kp G                                       &kp M         &hs RSHIFT N &hm RALT E    &hm RGUI I  &hm RCTL O  &kp SQT
-    &mkp RCLK  &kp Z        &kp X        &kp C       &kp D         &kp V                                       &kp K         &kp H        &kp COMMA     &kp DOT     &kp FSLH    &kp RCTRL
-                                         &kp C_MUTE  &kp DEL       &lt NAV RET  &lt FUNC TAB  &lt MEDIA BSPC   &lt SYM SPACE &kp SQT      &kp LC(BSPC)
-            >;
-        };
+        bindings = <
+            &kp Q  &kp W    &kp F    &kp P       &kp B               &kp J    &kp L    &kp U       &kp Y      &kp QUOT
+            &mt GUI A  &mt LALT R &mt LCTL S   &mt LSHIFT T &kp G    &kp M    &mt RSHIFT N &mt RCTL E &mt RALT I &mt RGUI O
+            &kp Z      &kp X       &kp C       &kp D        &kp V    &kp K    &kp H    &kp COMMA   &kp DOT    &kp SLASH
+                      &mo MEDIA   &mo NAV   &mo MOUSE                       &mo SYM     &mo NUM   &mo FUN
+        >;
+    };
+
 
         nav_layer {
             bindings = <
