@@ -32,7 +32,6 @@
 #define FUN     6
 
 
-
 &caps_word {
     continue-list = <UNDERSCORE MINUS>;
 };
@@ -66,7 +65,7 @@
             &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none          &none           &mmv MOVE_LEFT  &mmv MOVE_UP    &mmv MOVE_DOWN  &mmv MOVE_RIGHT
             &none           &none           &none           &none           &none          &none           &none           &none           &none           &none
 
-                                            &none           &none           &none          &mkp RCLK       &mkp LCLK       &mkp MCLK
+                                            &none           &none           &none          &none           &none           &none
         >;
     };
 
@@ -74,9 +73,9 @@
         bindings = <
             &none           &none           &none           &none           &none                &none           &none           &none           &none           &none
             &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &none           &kp M_PREV      &kp C_VOL_DN    &kp C_VOL_UP    &kp M_NEXT
-            &none           &none           &none           &none           &none                &none           &none           &kp C_BRI_DN    &kp C_BRI_UP    &none
+            &none           &none           &none           &none           &none                &none           &none           &none           &none           &none
 
-                                            &none           &none           &none                &kp M_STOP      &kp M_PLAY      &kp C_MUTE
+                                            &none           &none           &none                &kp M_STOP      &kp M_PLAY      &none
         >;
     };
 
@@ -85,7 +84,7 @@
         bindings = <
             &kp LBKT        &kp N7         &kp N8         &kp N9         &kp RBKT                &none           &none           &none           &none           &none                
             &kp SCLN        &kp N4         &kp N5         &kp N6         &kp EQUAL               &none           &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI                     
-            &kp GRAVE       &kp N1         &kp N2         &kp N3         &kp BSLH                &MCLKnone           &none           &none           &none           &none                
+            &kp GRAVE       &kp N1         &kp N2         &kp N3         &kp BSLH                &none           &none           &none           &none           &none                
 
                                            &kp DOT        &kp N0         &kp MINUS               &none           &none           &none           
         >;
@@ -107,7 +106,7 @@
     FUN {
         bindings = <
             &kp F12         &kp F7         &kp F8         &kp F9         &none                &none           &none           &none           &none           &bootloader          
-            &kp F11         &kp F4         &kp F5         &kp F6         &kp SLCK             &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
+            &kp F11         &kp F4         &kp F5         &kp F6         &none                &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
             &kp F10         &kp F1         &kp F2         &kp F3         &none                &none           &none           &none           &none           &none                
 
                                            &kp ESC        &kp SPACE      &kp TAB              &none           &none           &none           
