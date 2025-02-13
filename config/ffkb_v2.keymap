@@ -45,7 +45,7 @@
             &mt LGUI A       &mt LALT R      &mt LCTL S      &mt LSHIFT T    &kp G                &kp M           &mt RSHIFT N    &mt RCTL E      &mt RALT I      &mt RGUI O
             &kp Z           &kp X           &kp C           &kp D           &kp V                &kp K           &kp H           &kp COMMA       &kp DOT         &kp SLASH
 
-            &lt 3 ESC     &lt 1 SPACE     &lt 2 TAB     &lt 5 ENTER     &lt 4 BSPC      &lt 6 DEL
+            &lt MEDIA ESC     &lt NAV SPACE     &lt MOUSE TAB     &lt SYM ENTER     &lt NUM BSPC      &lt FUN DEL
         >;
     };
 
