@@ -42,30 +42,30 @@
         DEFAULT {
         bindings = <
             &kp Q           &kp W           &kp F           &kp P           &kp B                &kp J           &kp L           &kp U           &kp Y           &kp QUOT
-            &mt LGUI A       &mt LALT R      &mt LCTL S      &mt LSHIFT T    &kp G                &kp M           &mt RSHIFT N    &mt RCTL E      &mt RALT I      &mt RGUI O
+            &mt LGUI A       &mt LALT R      &mt LCTL S      &mt LSHIFT T   &kp G                &kp M           &mt RSHIFT N    &mt RCTL E      &mt RALT I      &mt RGUI O
             &kp Z           &kp X           &kp C           &kp D           &kp V                &kp K           &kp H           &kp COMMA       &kp DOT         &kp SLASH
 
-            &lt MEDIA ESC     &lt NAV SPACE     &lt MOUSE TAB     &lt SYM ENTER     &lt NUM BSPC      &lt FUN DEL
+                                            &lt MEDIA ESC   &lt NAV SPACE   &lt MOUSE TAB        &lt SYM ENTER   &lt NUM BSPC    &lt FUN DEL
         >;
     };
 
     NAV {
         bindings = <
-            &none    &none    &none      &none      &none  &kp LC(Y)       &kp LC(V)     &kp LC(C)     &kp LC(X)       &kp LC(Z)
-            &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &caps_word    &kp LEFT         &kp UP          &kp DOWN         &kp RIGHT
-            &none           &none           &none           &none           &none                &none  &kp HOME      &kp PGUP     &kp PGDN         &kp END
+            &none           &none           &none           &none           &none                &kp LC(Y)     &kp LC(V)     &kp LC(C)     &kp LC(X)        &kp LC(Z)
+            &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &caps_word    &kp LEFT      &kp UP        &kp DOWN         &kp RIGHT
+            &none           &none           &none           &none           &none                &none         &kp HOME      &kp PGUP      &kp PGDN         &kp END
 
-                                            &none           &none           &none           &kp ENTER       &kp BSPC            &kp DEL
+                                            &none           &none           &none                &kp ENTER       &kp BSPC    &kp DEL
         >;
     };
 
     MOUSE {
         bindings = <
-            &none       &none           &none           &none           &none           &none &kp LC(Y)       &kp LC(V)       &kp LC(C)       &kp LC(X)       &kp LC(Z)
-            &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &none           &mmv MOVE_LEFT      &mmv MOVE_UP        &mmv MOVE_DOWN      &mmv MOVE_RIGHT
-            &none           &none      &none        &none      &none          &none           &none           &none           &none           &none
+            &none           &none           &none           &none           &none          &kp LC(Y)       &kp LC(V)       &kp LC(C)       &kp LC(X)       &kp LC(Z)
+            &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none          &none           &mmv MOVE_LEFT  &mmv MOVE_UP    &mmv MOVE_DOWN  &mmv MOVE_RIGHT
+            &none           &none           &none           &none           &none          &none           &none           &none           &none           &none
 
-                            &none           &none           &none           &none        &none            &none
+                                            &none           &none           &none           &none        &none            &none
         >;
     };
 
@@ -75,18 +75,18 @@
             &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &none           &kp M_PREV      &kp VOLD        &kp VOLU        &kp M_NEXT
             &none           &none           &none           &none           &none                &none           &none           &none        &none        &none
 
-                                        &none           &none                &none        &kp M_STOP      &kp M_PLAY      &none
+                                            &none           &none           &none                &kp M_STOP      &kp M_PLAY      &none
         >;
     };
 
 
     NUM {
         bindings = <
-            &kp LBRC        &kp N7         &kp N8         &kp N9         &kp RBRC                &none           &none           &none           &none      &none                
+            &kp LBRC        &kp N7         &kp N8         &kp N9         &kp RBRC                &none           &none           &none           &none           &none                
             &kp SCLN        &kp N4         &kp N5         &kp N6         &kp EQUAL               &none           &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI                     
             &kp GRAVE       &kp N1         &kp N2         &kp N3         &kp BSLH                &none           &none           &none           &none           &none                
 
-                                &kp DOT         &kp N0              &kp MINUS              &none           &none           &none           
+                                           &kp DOT        &kp N0         &kp MINUS               &none           &none           &none           
         >;
 
     };
@@ -95,10 +95,10 @@
     SYM {
         bindings = <
             &kp LBRC        &kp AMPS       &kp STAR       &kp LPAR       &kp RBRC                &none           &none           &none           &none           &none                
-            &kp COLN        &kp DLLR        &kp PRCNT        &kp CARET      &kp PLUS                &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
+            &kp COLN        &kp DLLR       &kp PRCNT      &kp CARET      &kp PLUS                &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
             &kp GRAVE       &kp EXCL       &kp AT         &kp HASH       &kp PIPE                &none           &none           &none           &none           &none                
 
-                                            &none           &none           &none           &kp LPAR        &kp RPAR            &kp UNDER
+                                           &none          &none          &none                   &kp LPAR        &kp RPAR        &kp UNDER
         >;
     };
 
@@ -109,7 +109,7 @@
             &kp F11         &kp F4         &kp F5         &kp F6         &none                &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
             &kp F10         &kp F1         &kp F2         &kp F3         &none                &none           &none           &none           &none           &none                
 
-                                        &none         &kp SPACE           &kp TAB          &none           &none           &none           
+                                           &none          &kp SPACE      &kp TAB              &none           &none           &none           
         >;
 
     };
