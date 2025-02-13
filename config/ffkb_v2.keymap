@@ -3,13 +3,14 @@
  *
  * SPDX-License-Identifier: MIT
  */
+/* Overrides the base case of 3x6+3 to 3x5 + 3*/ 
 
   &default_transform {
       map = <
            RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5)         RC(0,6) RC(0,7) RC(4,3) RC(3,4) RC(4,5)
            RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)         RC(1,6) RC(1,7) RC(3,2) RC(4,4) RC(3,5)
            RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)         RC(2,6) RC(2,7) RC(4,2) RC(3,3) RC(3,6)
-                   RC(5,1) RC(5,3) RC(5,4) RC(5,5)         RC(5,6) RC(5,7) RC(5,2) RC(5,0)
+                           RC(5,3) RC(5,4) RC(5,5)         RC(5,6) RC(5,7) RC(5,2)
       >;
   };
 
@@ -22,19 +23,10 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors/mouse_keys.dtsi>
 
-#define DEFAULT 0
-#define NAV     1
-#define MOUSE   2
-#define MEDIA   3
-#define NUM     4
-#define SYM     5
-#define FUN     6
-
 
 &caps_word {
     continue-list = <UNDERSCORE MINUS>;
 };
-
 
 / { keymap {
         compatible = "zmk,keymap";
@@ -42,14 +34,14 @@
         DEFAULT {
         bindings = <
             &kp Q           &kp W           &kp F           &kp P           &kp B                &kp J           &kp L           &kp U           &kp Y           &kp QUOT
-            &mt GUI A       &mt LALT R      &mt LCTL S      &mt LSHIFT T    &kp G                &kp M           &mt RSHIFT N    &mt RCTL E      &mt RALT I      &mt RGUI O
+            &mt LGUI A       &mt LALT R      &mt LCTL S      &mt LSHIFT T    &kp G                &kp M           &mt RSHIFT N    &mt RCTL E      &mt RALT I      &mt RGUI O
             &kp Z           &kp X           &kp C           &kp D           &kp V                &kp K           &kp H           &kp COMMA       &kp DOT         &kp SLASH
 
-            &lt 3 ESC     &lt 1 SPACE     &lt 2 TAB     &lt 5 ENTER     &lt 4 BSPC      &lt 6 DEL
+            &lt MEDIA ESC     &lt NAV SPACE     &lt MOUSE TAB     &lt SYM ENTER     &lt NUM BSPC      &lt FUN DEL
         >;
     };
 
-    nav {
+    NAV {
         bindings = <
             &none    &none    &none      &none      &none  &kp LC(Y)       &kp LC(V)     &kp LC(C)     &kp LC(X)       &kp LC(Z)
             &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &caps_word    &kp LEFT         &kp UP          &kp DOWN         &kp RIGHT
@@ -59,7 +51,7 @@
         >;
     };
 
-    mouse {
+    MOUSE {
         bindings = <
             &none       &none           &none           &none           &none           &none &kp LC(Y)       &kp LC(V)       &kp LC(C)       &kp LC(X)       &kp LC(Z)
             &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &none           &mmv MOVE_LEFT      &mmv MOVE_UP        &mmv MOVE_DOWN      &mmv MOVE_RIGHT
@@ -69,7 +61,7 @@
         >;
     };
 
-    media {
+    MEDIA {
         bindings = <
             &none           &none           &none           &none           &none                &none           &none           &none           &none           &none
             &kp LGUI        &kp LALT        &kp LCTL        &kp LSHIFT      &none                &none           &kp M_PREV      &kp VOLD        &kp VOLU        &kp M_NEXT
@@ -80,7 +72,7 @@
     };
 
 
-    num {
+    NUM {
         bindings = <
             &kp LBRC        &kp N7         &kp N8         &kp N9         &kp RBRC                &none           &none           &none           &none      &none                
             &kp SCLN        &kp N4         &kp N5         &kp N6         &kp EQUAL               &none           &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI                     
@@ -92,7 +84,7 @@
     };
 
 
-    sym {
+    SYM {
         bindings = <
             &kp LBRC        &kp AMPS       &kp STAR       &kp LPAR       &kp RBRC                &none           &none           &none           &none           &none                
             &kp COLN        &kp DLLR        &kp PRCNT        &kp CARET      &kp PLUS                &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
@@ -103,7 +95,7 @@
     };
 
 
-    fun {
+    FUN {
         bindings = <
             &kp F12         &kp F7         &kp F8         &kp F9         &none                &none           &none           &none           &none           &bootloader          
             &kp F11         &kp F4         &kp F5         &kp F6         &none                &kp RSHIFT      &kp RCTL        &kp RALT        &kp RGUI        &none                
