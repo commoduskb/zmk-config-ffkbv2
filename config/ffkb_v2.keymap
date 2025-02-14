@@ -27,6 +27,7 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors/mouse_keys.dtsi>
 
+
 #define DEFAULT 0
 #define NAV     1
 #define MOUSE   2
@@ -34,6 +35,34 @@
 #define NUM     4
 #define SYM     5
 #define FUN     6
+
+#include "zmk-helpers/helper.h"
+
+/* Left-hand HRMs. */
+ZMK_HOLD_TAP(hml,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-on-release;
+)
+
+/* Right-hand HRMs. */
+ZMK_HOLD_TAP(hmr,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-on-release;
+)
+
+
+
+
 
 
 &caps_word {

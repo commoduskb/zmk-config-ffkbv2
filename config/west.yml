@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: sadekbaroudi
       url-base: https://github.com/sadekbaroudi
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -21,5 +23,8 @@ manifest:
       remote: sadekbaroudi
       revision: main
       import: config/deps.yml
+    - name: zmk-helpers
+      remote: urob
+      revision: main
   self:
     path: config
