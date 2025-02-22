@@ -1,13 +1,13 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+    - name: zmk
+      url-base: https://github.com/Nick-Munnich
     - name: sadekbaroudi
       url-base: https://github.com/sadekbaroudi
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: Nick-Munnich
+      revision: layer-locking
       import: app/west.yml
     - name: zmk-fingerpunch-keyboards
       remote: sadekbaroudi
