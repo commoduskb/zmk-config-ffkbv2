@@ -1,6 +1,6 @@
 manifest:
   remotes:
-    - name: zmk
+    - name: Nick-Munnich
       url-base: https://github.com/Nick-Munnich
     - name: sadekbaroudi
       url-base: https://github.com/sadekbaroudi
