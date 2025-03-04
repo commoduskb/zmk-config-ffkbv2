@@ -4,9 +4,6 @@ manifest:
       url-base: https://github.com/Nick-Munnich
     - name: sadekbaroudi
       url-base: https://github.com/sadekbaroudi
-    # Add this:
-    - name: halfdane
-      url-base: https://github.com/halfdane/
   projects:
     - name: zmk
       remote: Nick-Munnich
@@ -24,16 +21,5 @@ manifest:
       remote: sadekbaroudi
       revision: main
       import: config/deps.yml
-      # Halfdane
-    - name: zmk-input-gestures
-      remote: halfdane
-      revision: main
-    # Halfdane
-    - name: zmk-input-processors
-      remote: halfdane
-      revision: main
-    - name: cirque-input-module
-      remote: halfdane
-      revision: absolute_mode
   self:
     path: config
