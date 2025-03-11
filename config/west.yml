@@ -7,7 +7,7 @@ manifest:
   projects:
     - name: zmk
       remote: Nick-Munnich
-      revision: layer-locking
+      revision: 6e4fd82791b53e59872c2c2428123aa8aa06523b
       import: app/west.yml
     - name: zmk-fingerpunch-keyboards
       remote: sadekbaroudi
