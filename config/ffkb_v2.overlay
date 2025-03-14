@@ -1,4 +1,4 @@
-// Add this file to override any keyboard specific devicetree configuration
+// Add this file to override any kb specific devicetree configuration
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
 
